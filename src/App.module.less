@@ -1,0 +1,79 @@
+@tile-on:  #edd9b9;
+@tile-off: #ae8868;
+
+@highlight-on:  #4cd35b;
+@highlight-off: darken(@highlight-on, 12.5%);
+
+@check-on:  #ef5146;
+@check-off: darken(@check-on, 12.5%);
+
+* {
+  font-family: system-ui;
+}
+
+body {
+  height: 100vh;
+
+  display:     grid;
+  place-items: center;
+
+  overflow: hidden;
+}
+
+.top() {
+  position: absolute;
+  top: 10px;
+}
+
+.left {
+  .top();
+  left: 10px;
+}
+
+.right {
+  .top();
+  right: 10px;
+}
+
+.board {
+  cursor: default;
+
+  .row:nth-child(even) :nth-child(even),
+  .row:nth-child(odd)  :nth-child(odd) {
+    &.tile {
+      background: @tile-on;
+    }
+
+    &.highlight {
+      background: @highlight-on;
+    }
+
+    &.check {
+      background: @check-on;
+    }
+  }
+}
+
+.row {
+  display: flex;
+}
+
+.tile {
+  background: @tile-off;
+
+  width:  75px;
+  height: 75px;
+
+  text-align:  center;
+  line-height: 85px;
+
+  font-size: 40px;
+}
+
+.highlight {
+  background: @highlight-off;
+}
+
+.check {
+  background: @check-off;
+}
